@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recursion</title>
+</head>
+
+<body>
+    <h1>Recusion</h1>
+    <script>
+        let generateNumberArray = (length) => {
+            let arr = []
+            for (i = 0; i < length; i++) {
+                arr.push(i + 1);
+            }
+            return arr;
+        }
+
+        let generateLetterArray = (length) => {
+            let start = 65;
+            let arr = [];
+            for (i = 0; i < length; i++) {
+                arr.push(String.fromCharCode(65 + i));
+            }
+            return arr;
+        }
+
+        let xAxis = generateNumberArray(10);
+        let yAxis = generateLetterArray(10);
+
+        console.log(xAxis);
+        console.log(yAxis);
+
+        function generateGrid(x, y) {
+            let grid = []
+            let generateRow = (rowNumber) => {
+                var row = [];
+                console.log(x.length)
+                for (var i = 0; i < x.length; i++) {
+                    row.push(
+                        {
+                            x: x[rowNumber],
+                            y: y[i],
+                        }
+                    )
+                }
+                console.log(row)
+                return row
+            }
+            for (var j = 0; j < x.length; j++) {
+                console.log(x.length)
+                console.log(`generating row ${j + 1}`)
+                grid.push(generateRow(j));
+            }
+            console.log(grid)
+            return grid;
+        }
+
+        var grid = generateGrid(xAxis, yAxis);
+
+    </script>
+</body>
+
+</html>
